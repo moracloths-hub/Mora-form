@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoRa — Bespoke Tailoring</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --crimson: #AF203F;
+      --crimson-dark: #8B1830;
+      --crimson-light: #D4405A;
+      --pink: #FFB4C2;
+      --pink-light: #FFD6DF;
+      --pink-pale: #FFF0F3;
+      --black: #000000;
+      --off-black: #1A1A1A;
+      --white: #FFFFFF;
+      --text-body: #111111;
+      --text-muted: #AF203F;
+      --text-light: #bbbbbb;
+      --border: rgba(175,32,63,0.2);
+      --border-strong: rgba(175,32,63,0.4);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #FFF8FA;
+      font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+      font-weight: 300;
+      color: var(--text-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 10%, rgba(255,180,194,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 80%, rgba(175,32,63,0.05) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; z-index: 1;
+      background: #FFF8FA;
+      padding: 72px 24px 80px;
+      text-align: center; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 110%, rgba(175,32,63,0.08) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 20% 0%, rgba(255,180,194,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 80% 0%, rgba(255,180,194,0.1) 0%, transparent 55%);
+    }
+    .hero-inner { position: relative; z-index: 1; }
+
+    .logo-mark { display: inline-block; margin-bottom: 24px; animation: fadeDown 0.8s ease both; }
+    .logo-ring {
+      width: 90px; height: 90px;
+      border: 1.5px solid var(--crimson);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; margin: 0 auto;
+      box-shadow: 0 0 20px rgba(175,32,63,0.15), inset 0 0 20px rgba(255,180,194,0.08);
+    }
+    .logo-ring::before {
+      content: ''; position: absolute; inset: 6px;
+      border: 1px solid rgba(175,32,63,0.2); border-radius: 50%;
+    }
+    .logo-ring span {
+      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; font-style: italic;
+      color: var(--crimson); letter-spacing: 2px;
+    }
+
+    .hero-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 11vw, 96px);
+      font-weight: 900; font-style: italic; color: var(--black);
+      letter-spacing: 8px; text-transform: none; line-height: 1;
+      animation: fadeDown 0.8s 0.1s ease both;
+    }
+    .hero-brand .ra { color: var(--crimson); font-style: italic; }
+
+    .hero-tagline {
+      font-family: 'DM Sans', sans-serif; font-style: normal;
+      font-size: clamp(11px, 1.5vw, 14px); color: var(--crimson); font-weight: 500; letter-spacing: 5px; text-transform: uppercase;
+      letter-spacing: 3px; margin-top: 10px;
+      animation: fadeDown 0.8s 0.2s ease both;
+    }
+
+    .hero-divider {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; margin: 22px auto 30px; width: 340px;
+      animation: fadeDown 0.8s 0.3s ease both;
+    }
+    .hero-divider::before, .hero-divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--crimson));
+    }
+    .hero-divider::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .hero-divider-dot { width: 6px; height: 6px; background: var(--crimson); transform: rotate(45deg); box-shadow: 0 0 8px rgba(175,32,63,0.4); }
+
+    .hero-desc {
+      max-width: 580px; margin: 0 auto;
+      font-size: 15px; line-height: 1.9;
+      color: #666; letter-spacing: 0.3px;
+      animation: fadeDown 0.8s 0.4s ease both;
+    }
+
+    .trust-strip {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px 28px; margin-top: 36px; padding-top: 28px;
+      border-top: 1px solid rgba(175,32,63,0.15);
+      animation: fadeDown 0.8s 0.5s ease both;
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--crimson); font-family: 'DM Sans', sans-serif; font-weight: 500;
+    }
+    .trust-badge::before { content: '✦'; font-size: 7px; color: var(--pink); }
+
+    /* ── PAGE BODY ── */
+    .page-body {
+      position: relative; z-index: 1;
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: #FFF8FA;
+      border: 1px solid rgba(175,32,63,0.15);
+      border-left: 4px solid var(--crimson);
+      padding: 28px 32px; margin-bottom: 40px;
+    }
+    .intro-card p {
+      font-family: 'Playfair Display', serif; font-size: 16px;
+      line-height: 1.85; color: #7a1030; font-style: italic; font-weight: 400;
+    }
+    .intro-card strong { color: var(--crimson); font-style: normal; }
+
+    /* ── FORM CARD ── */
+    .form-card {
+      background: #FFF8FA;
+      border: 1px solid rgba(175,32,63,0.12);
+      box-shadow: 0 8px 60px rgba(175,32,63,0.08), 0 2px 0 rgba(175,32,63,0.06) inset;
+      padding: 52px 52px 56px; position: relative;
+    }
+    .form-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--black) 0%, var(--crimson) 40%, var(--pink) 60%, var(--crimson) 80%, var(--black) 100%);
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-head {
+      margin-bottom: 28px; padding-bottom: 14px;
+      border-bottom: 1px solid rgba(175,32,63,0.15);
+      display: flex; align-items: flex-end; gap: 14px;
+    }
+    .section-num {
+      font-family: 'Playfair Display', serif; font-size: 42px;
+      font-weight: 700; color: rgba(175,32,63,0.18); line-height: 1; letter-spacing: -2px;
+    }
+    .section-title {
+      font-family: 'DM Sans', sans-serif; font-size: 9px;
+      letter-spacing: 5px; text-transform: uppercase; color: var(--crimson); display: block; font-weight: 600;
+    }
+    .section-subtitle {
+      font-family: 'Playfair Display', serif; font-size: 19px;
+      font-weight: 700; color: var(--black); margin-top: 2px; display: block;
+    }
+
+    .section-gap { margin-bottom: 48px; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    .span-2 { grid-column: span 2; }
+
+    .field { display: flex; flex-direction: column; gap: 7px; }
+
+    label.field-label {
+      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+      color: #AF203F; font-weight: 600; font-family: 'DM Sans', sans-serif;
+    }
+    .field-hint { font-size: 10px; color: #c05070; letter-spacing: 0.3px; margin-top: 4px; }
+
+    input, select, textarea {
+      background: #FFF8FA;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 2px solid rgba(175,32,63,0.25);
+      color: var(--black); padding: 12px 16px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
+      outline: none; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+      border-radius: 2px; width: 100%;
+      -webkit-appearance: none; appearance: none;
+    }
+    input::placeholder, textarea::placeholder { color: #AF203F; font-style: italic; opacity: 0.5; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--crimson); border-bottom-color: var(--crimson);
+      background: #FFF8FA;
+      box-shadow: 0 4px 20px rgba(175,32,63,0.08), 0 0 0 3px rgba(175,32,63,0.07);
+    }
+    textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
+
+    /* ── UNIT TOGGLE ── */
+    .unit-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .unit-label-text { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #AF203F; font-weight: 500; }
+    .unit-toggle { display: flex; border: 1px solid rgba(175,32,63,0.3); border-radius: 2px; overflow: hidden; }
+    .unit-toggle input[type="radio"] { display: none; }
+    .unit-toggle label {
+      padding: 7px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      cursor: pointer; color: #AF203F; transition: all 0.2s; border: none; font-weight: 500;
+    }
+    .unit-toggle input:checked + label { background: var(--crimson); color: #fff; }
+
+    /* ── MEASURE FIELD ── */
+    .mfield { position: relative; }
+    .mfield input { padding-right: 48px; }
+    .msuffix {
+      position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
+      font-size: 10px; letter-spacing: 1px; color: var(--crimson); pointer-events: none; font-weight: 500;
+    }
+
+    /* ── SUBMIT ── */
+    .submit-area { margin-top: 44px; text-align: center; }
+    .btn-submit {
+      display: inline-block;
+      background: var(--black);
+      border: none; color: var(--white);
+      padding: 18px 72px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      letter-spacing: 5px; text-transform: uppercase;
+      cursor: pointer; position: relative; overflow: hidden;
+      transition: all 0.4s; border-radius: 1px;
+      width: 100%; max-width: 360px; font-weight: 500;
+    }
+    .btn-submit::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--crimson), var(--crimson-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.45s cubic-bezier(0.77,0,0.175,1); z-index: 0;
+    }
+    .btn-submit:hover::before { transform: scaleX(1); }
+    .btn-text { position: relative; z-index: 1; }
+
+    .submit-note {
+      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+      color: var(--crimson); margin-top: 14px; opacity: 1; font-weight: 500;
+    }
+
+    /* ── LOADER ── */
+    .loader-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(255,248,250,0.96); backdrop-filter: blur(6px);
+      z-index: 200; align-items: center; justify-content: center;
+      flex-direction: column; gap: 24px;
+    }
+    .loader-overlay.active { display: flex; }
+    .loader-ring {
+      width: 64px; height: 64px;
+      border: 2px solid rgba(175,32,63,0.15); border-top-color: var(--crimson);
+      border-radius: 50%; animation: spin 1s linear infinite;
+    }
+    .loader-text { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--crimson); font-weight: 500; }
+    .loader-sub { font-size: 13px; color: #AF203F; letter-spacing: 1px; font-style: italic; font-family: 'Playfair Display', serif; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── THANK YOU ── */
+    .thankyou {
+      display: none; position: fixed; inset: 0;
+      background: #FFF8FA; z-index: 300;
+      align-items: center; justify-content: center; padding: 24px;
+    }
+    .thankyou.active { display: flex; }
+    .ty-card {
+      background: #FFF8FA;
+      border: 1px solid rgba(175,32,63,0.15);
+      max-width: 520px; width: 100%; padding: 64px 52px;
+      text-align: center; position: relative;
+      box-shadow: 0 32px 100px rgba(175,32,63,0.12);
+      animation: popUp 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    .ty-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--black), var(--crimson), var(--pink), var(--crimson), var(--black));
+    }
+    @keyframes popUp {
+      from { opacity: 0; transform: scale(0.88) translateY(20px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .ty-icon {
+      width: 72px; height: 72px; border: 1.5px solid var(--crimson); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; position: relative;
+      background: #FFF8FA;
+    }
+    .ty-icon::before { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(175,32,63,0.2); border-radius: 50%; }
+    .ty-check {
+      width: 28px; height: 28px; stroke: var(--crimson); stroke-width: 2.5; fill: none;
+      stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck 0.7s 0.4s ease forwards;
+    }
+    @keyframes drawCheck { to { stroke-dashoffset: 0; } }
+    .ty-headline { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 6px; text-transform: uppercase; color: var(--crimson); margin-bottom: 8px; font-weight: 500; }
+    .ty-name { font-family: 'Playfair Display', serif; font-size: clamp(28px,5vw,42px); font-weight: 900; font-style: italic; color: var(--black); line-height: 1.1; margin-bottom: 20px; }
+    .ty-divider { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 20px auto; }
+    .ty-divider::before, .ty-divider::after { content: ''; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--crimson)); }
+    .ty-divider::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .ty-divider-dot { width: 4px; height: 4px; background: var(--crimson); transform: rotate(45deg); }
+    .ty-message { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; font-weight: 400; line-height: 1.85; color: #7a1030; margin-bottom: 28px; }
+    .ty-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(175,32,63,0.3); background: #FFF8FA; padding: 10px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); font-weight: 500; }
+    .ty-badge::before { content: '⧫'; font-size: 8px; }
+    .ty-footer { margin-top: 32px; font-size: 11px; color: #AF203F; letter-spacing: 0.5px; }
+    .ty-mora { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; color: var(--crimson); font-size: 14px; }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      position: relative; z-index: 1; text-align: center;
+      padding: 32px 24px 48px;
+      border-top: 1px solid rgba(175,32,63,0.12);
+      background: #FFF8FA;
+    }
+    .footer-mora { font-family: 'Playfair Display', serif; font-size: 24px; letter-spacing: 4px; color: var(--crimson); font-weight: 900; font-style: italic; }
+    .footer-copy { font-size: 10px; letter-spacing: 2px; color: #AF203F; margin-top: 6px; text-transform: uppercase; }
+
+    @media (max-width: 640px) {
+      .form-card { padding: 32px 20px 36px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .span-2 { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="logo-mark">
+      <div class="logo-ring"><span>MR</span></div>
+    </div>
+    <h1 class="hero-brand"><span class="mo">Mo</span><span class="ra">Ra</span></h1>
+    <p class="hero-tagline">The Art of Bespoke Tailoring · Since Generations</p>
+    <div class="hero-divider"><span class="hero-divider-dot"></span></div>
+    <p class="hero-desc">
+      Every MoRa garment begins not with fabric — but with you. Our in-house team of master tailors and designers craft each piece entirely by hand, stitch by stitch, ensuring a fit that no machine can replicate.
+    </p>
+    <div class="trust-strip">
+      <span class="trust-badge">100% Handcrafted</span>
+      <span class="trust-badge">In-House Designers</span>
+      <span class="trust-badge">Master Tailor Team</span>
+      <span class="trust-badge">Premium Fabrics</span>
+      <span class="trust-badge">Personal Fitting</span>
+    </div>
+  </div>
+</header>
+
+<main class="page-body">
+
+  <div class="intro-card">
+    <p>
+      At <strong>MoRa</strong>, we believe a truly great garment is a conversation between the wearer and the maker.
+      Please fill in each section carefully — the more detail you provide, the more precisely our team can craft
+      something that reflects your personality, your posture, and your purpose.
+      <strong>Every measurement matters. Every preference is honoured.</strong>
+    </p>
+  </div>
+
+  <div class="form-card">
+    <form id="mora-form">
+
+      <!-- ── SECTION 1: Personal Details ── -->
+      <div class="section-gap">
+        <div class="section-head">
+          <span class="section-num">01</span>
+          <div class="section-title-block">
+            <span class="section-title">Getting to Know You</span>
+            <span class="section-subtitle">Personal & Contact Details</span>
+          </div>
+        </div>
+        <div class="grid-2" style="row-gap:20px;">
+          <div class="field span-2">
+            <label class="field-label" for="fullname">Full Name <span style="color:var(--copper)">*</span></label>
+            <input type="text" id="fullname" name="full_name" placeholder="Your full name" required />
+          </div>
+          <div class="field">
+            <label class="field-label" for="phone">Phone Number <span style="color:var(--copper)">*</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required />
+            <span class="field-hint">Our tailor will call/message you directly</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Email Address <span style="color:var(--copper)">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            <span class="field-hint">We'll send your order confirmation here</span>
+          </div>
+          <div class="field span-2">
+            <label class="field-label" for="address">Pickup / Delivery Address</label>
+            <input type="text" id="address" name="address" placeholder="Full address for pickup or home fitting visit" />
+            <span class="field-hint">Share your address so we can arrange collection or a home fitting session</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 2: Measurements ── -->
+      <div class="section-gap">
+        <div class="section-head">
+          <span class="section-num">02</span>
+          <div class="section-title-block">
+            <span class="section-title">Your Body Blueprint</span>
+            <span class="section-subtitle">Precise Body Measurements</span>
+          </div>
+        </div>
+        <p style="font-size:12px;line-height:1.7;color:rgba(240,230,206,0.4);margin-bottom:20px;font-style:italic;">
+          Don't worry if you don't have all measurements — our tailor can visit you or guide you on a video call. Fill in as much as you know.
+        </p>
+
+        <div class="unit-row">
+          <span class="unit-label-text">Unit:</span>
+          <div class="unit-toggle">
+            <input type="radio" name="unit" id="unit_in" value="in" checked />
+            <label for="unit_in">Inches</label>
+            <input type="radio" name="unit" id="unit_cm" value="cm" />
+            <label for="unit_cm">Centimetres</label>
+          </div>
+        </div>
+
+        <div class="grid-3" style="row-gap:20px;">
+          <div class="field">
+            <label class="field-label" for="m_bust">Bust / Chest <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_bust" name="bust_chest" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_underbust">Under Bust <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_underbust" name="under_bust" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_waist">Waist <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_waist" name="waist" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_hip">Hip <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_hip" name="hip" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_shoulder">Shoulder Width <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_shoulder" name="shoulder_width" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_sleeve">Sleeve Length <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_sleeve" name="sleeve_length" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_armhole">Armhole Round <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_armhole" name="armhole_round" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_biceps">Biceps Round <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_biceps" name="biceps_round" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_front_neck">Front Neck Depth <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_front_neck" name="front_neck_depth" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_back_neck">Back Neck Depth <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_back_neck" name="back_neck_depth" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_kurti">Kurti Length</label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_kurti" name="kurti_length" placeholder="—" />
+              <span class="msuffix unit-label">in</span>
+            </div>
+            <span class="field-hint">Shoulder to desired length</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="m_bottom">Bottom Length <span style="color:var(--copper)">*</span></label>
+            <div class="mfield">
+              <input type="number" step="0.1" id="m_bottom" name="bottom_length" placeholder="—" required />
+              <span class="msuffix unit-label">in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION 3: Notes ── -->
+      <div class="section-gap" style="margin-bottom:0;">
+        <div class="section-head">
+          <span class="section-num">03</span>
+          <div class="section-title-block">
+            <span class="section-title">Your Personal Touch</span>
+            <span class="section-subtitle">Tell Us More — We Love Listening</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field-label" for="notes">Anything special you want us to know?</label>
+          <textarea id="notes" name="notes" placeholder='Example: "I like a little loose fitting", "Please keep neckline modest", "Add margin for alteration"…'></textarea>
+          <span class="field-hint">The more you share, the better we can personalise your garment. No detail is too small.</span>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-area">
+        <button type="submit" class="btn-submit"><span class="btn-text">Submit My Order</span></button>
+        <p class="submit-note">✦ Our tailor will personally connect with you within 24 hours ✦</p>
+      </div>
+
+    </form>
+  </div>
+</main>
+
+<footer class="page-footer">
+  <p class="footer-mora">MoRa</p>
+  <p class="footer-copy">Handcrafted in India · Every stitch, by hand · Every garment, for you</p>
+</footer>
+
+<!-- LOADER -->
+<div class="loader-overlay" id="loader">
+  <div class="loader-ring"></div>
+  <p class="loader-text">Placing Your Order</p>
+  <p class="loader-sub">Our tailors are preparing to meet you…</p>
+</div>
+
+<!-- THANK YOU -->
+<div class="thankyou" id="thankyou">
+  <div class="ty-card">
+    <div class="ty-icon">
+      <svg class="ty-check" viewBox="0 0 24 24">
+        <polyline points="4 12 9 17 20 6" />
+      </svg>
+    </div>
+    <p class="ty-headline">Order Received</p>
+    <h2 class="ty-name">Thank You<br>for Choosing MoRa</h2>
+    <div class="ty-divider"><span class="ty-divider-dot"></span></div>
+    <p class="ty-message">
+      Your order has been safely received by our team. A MoRa designer or tailor will personally reach out to you within <strong>24 hours</strong> to discuss your measurements, preferences, and next steps — because every great garment deserves a real conversation.
+    </p>
+    <span class="ty-badge">Handcrafted just for you — with love</span>
+    <p class="ty-footer">Questions? WhatsApp us anytime · <span class="ty-mora">MoRa</span> Bespoke</p>
+  </div>
+</div>
+
+<script>
+  // Unit toggle
+  document.querySelectorAll('input[name="unit"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('.unit-label').forEach(el => el.textContent = radio.value);
+    });
+  });
+
+  // Form submit
+  const form = document.getElementById('mora-form');
+  const loader = document.getElementById('loader');
+  const thankyou = document.getElementById('thankyou');
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxZsu3Qn5OgMuX7bMrQK3uTRV_LPysiocBbLdggKgQVSOyvcJhWBv4hCDfqTZQ1w4x9/exec";
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loader.classList.add('active');
+    const formData = new FormData(form);
+
+    try {
+      await fetch(scriptURL, { method: 'POST', body: formData });
+    } catch (_) {}
+
+    setTimeout(() => {
+      loader.classList.remove('active');
+      thankyou.classList.add('active');
+      form.reset();
+    }, 2200);
+  });
+</script>
+</body>
+</html>
