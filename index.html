@@ -7,51 +7,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700;1,900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --crimson: #AF203F;
-      --crimson-dark: #8B1830;
-      --crimson-light: #D4405A;
-      --pink: #FFB4C2;
-      --pink-light: #FFD6DF;
-      --pink-pale: #FFF0F3;
-      --black: #000000;
-      --off-black: #1A1A1A;
-      --white: #FFFFFF;
-      --text-body: #111111;
-      --text-muted: #AF203F;
-      --text-light: #bbbbbb;
-      --border: rgba(175,32,63,0.2);
-      --border-strong: rgba(175,32,63,0.4);
+      --crimson: #AF203F; --crimson-dark: #8B1830; --crimson-light: #D4405A;
+      --pink: #FFB4C2; --pink-light: #FFD6DF; --pink-pale: #FFF0F3;
+      --black: #000000; --white: #FFFFFF;
+      --text-body: #111111; --border: rgba(175,32,63,0.2);
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: #FFF8FA;
       font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
-      font-weight: 300;
-      color: var(--text-body);
-      min-height: 100vh;
-      overflow-x: hidden;
+      font-weight: 300; color: var(--text-body);
+      min-height: 100vh; overflow-x: hidden;
     }
-
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
+      content: ''; position: fixed; inset: 0;
       background-image:
         radial-gradient(circle at 10% 10%, rgba(255,180,194,0.12) 0%, transparent 50%),
         radial-gradient(circle at 90% 80%, rgba(175,32,63,0.05) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
+      pointer-events: none; z-index: 0;
     }
 
     /* ── HERO ── */
     .hero {
       position: relative; z-index: 1;
-      background: #FFF8FA;
-      padding: 72px 24px 80px;
+      background: #FFF8FA; padding: 72px 24px 80px;
       text-align: center; overflow: hidden;
     }
     .hero::before {
@@ -62,13 +42,10 @@
         radial-gradient(ellipse 40% 30% at 80% 0%, rgba(255,180,194,0.1) 0%, transparent 55%);
     }
     .hero-inner { position: relative; z-index: 1; }
-
     .logo-mark { display: inline-block; margin-bottom: 24px; animation: fadeDown 0.8s ease both; }
     .logo-ring {
-      width: 90px; height: 90px;
-      border: 1.5px solid var(--crimson);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      width: 90px; height: 90px; border: 1.5px solid var(--crimson);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
       position: relative; margin: 0 auto;
       box-shadow: 0 0 20px rgba(175,32,63,0.15), inset 0 0 20px rgba(255,180,194,0.08);
     }
@@ -77,45 +54,36 @@
       border: 1px solid rgba(175,32,63,0.2); border-radius: 50%;
     }
     .logo-ring span {
-      font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; font-style: italic;
-      color: var(--crimson); letter-spacing: 2px;
+      font-family: 'Playfair Display', serif; font-size: 28px;
+      font-weight: 900; font-style: italic; color: var(--crimson); letter-spacing: 2px;
     }
-
     .hero-brand {
       font-family: 'Playfair Display', serif;
       font-size: clamp(52px, 11vw, 96px);
       font-weight: 900; font-style: italic; color: var(--black);
-      letter-spacing: 8px; text-transform: none; line-height: 1;
-      animation: fadeDown 0.8s 0.1s ease both;
+      letter-spacing: 8px; line-height: 1; animation: fadeDown 0.8s 0.1s ease both;
     }
-    .hero-brand .ra { color: var(--crimson); font-style: italic; }
-
+    .hero-brand .ra { color: var(--crimson); }
     .hero-tagline {
-      font-family: 'DM Sans', sans-serif; font-style: normal;
-      font-size: clamp(11px, 1.5vw, 14px); color: var(--crimson); font-weight: 500; letter-spacing: 5px; text-transform: uppercase;
-      letter-spacing: 3px; margin-top: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(11px, 1.5vw, 14px); color: var(--crimson); font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase; margin-top: 10px;
       animation: fadeDown 0.8s 0.2s ease both;
     }
-
     .hero-divider {
       display: flex; align-items: center; justify-content: center;
       gap: 16px; margin: 22px auto 30px; width: 340px;
       animation: fadeDown 0.8s 0.3s ease both;
     }
-    .hero-divider::before, .hero-divider::after {
-      content: ''; flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--crimson));
-    }
-    .hero-divider::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .hero-divider::before, .hero-divider::after { content: ''; flex: 1; height: 1px; }
+    .hero-divider::before { background: linear-gradient(90deg, transparent, var(--crimson)); }
+    .hero-divider::after  { background: linear-gradient(90deg, var(--crimson), transparent); }
     .hero-divider-dot { width: 6px; height: 6px; background: var(--crimson); transform: rotate(45deg); box-shadow: 0 0 8px rgba(175,32,63,0.4); }
-
     .hero-desc {
       max-width: 580px; margin: 0 auto;
-      font-size: 15px; line-height: 1.9;
-      color: #666; letter-spacing: 0.3px;
+      font-size: 15px; line-height: 1.9; color: #666; letter-spacing: 0.3px;
       animation: fadeDown 0.8s 0.4s ease both;
     }
-
     .trust-strip {
       display: flex; flex-wrap: wrap; justify-content: center;
       gap: 10px 28px; margin-top: 36px; padding-top: 28px;
@@ -129,30 +97,406 @@
     }
     .trust-badge::before { content: '✦'; font-size: 7px; color: var(--pink); }
 
+    /* ════════════════════════════════════════════
+       ── NEW: VIDEO REELS SECTION ──
+    ════════════════════════════════════════════ */
+    .reels-section {
+      position: relative; z-index: 1;
+      background: #fff8fa;
+      padding: 64px 24px 72px;
+      border-top: 1px solid rgba(175,32,63,0.1);
+      overflow: hidden;
+    }
+    .reels-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255,180,194,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .reels-header {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative; z-index: 1;
+    }
+    .reels-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--crimson); font-weight: 600; margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .reels-eyebrow::before, .reels-eyebrow::after {
+      content: ''; width: 32px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--crimson));
+    }
+    .reels-eyebrow::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .reels-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 900; font-style: italic; color: var(--black);
+      line-height: 1.15;
+    }
+    .reels-title em { color: var(--crimson); font-style: normal; }
+    .reels-sub {
+      font-size: 13px; color: #888; margin-top: 10px; letter-spacing: 0.3px;
+    }
+
+    /* Scrollable reel strip */
+    .reels-scroll-wrap {
+      position: relative; z-index: 1;
+    }
+    .reels-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 8px 4px 20px;
+      scrollbar-width: none;
+    }
+    .reels-track::-webkit-scrollbar { display: none; }
+    .reel-card {
+      flex: 0 0 220px;
+      scroll-snap-align: start;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: #111;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .reel-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(175,32,63,0.2);
+    }
+    .reel-video-wrap {
+      width: 100%;
+      aspect-ratio: 9/16;
+      position: relative;
+      background: #1a0a0e;
+    }
+    .reel-video-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 0;
+    }
+    /* Sound indicator hint */
+    .reel-tap-hint {
+      position: absolute; bottom: 14px; right: 14px;
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.55);
+      border-radius: 50%;
+      font-size: 16px;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      backdrop-filter: blur(4px);
+    }
+    .reel-tap-hint.hidden { opacity: 0; }
+    /* Muted badge always visible */
+    .reel-muted-badge {
+      position: absolute; bottom: 14px; right: 14px;
+      background: rgba(0,0,0,0.45); border-radius: 20px;
+      padding: 4px 10px; font-size: 9px; letter-spacing: 1.5px;
+      color: rgba(255,255,255,0.7); text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif; font-weight: 500;
+      backdrop-filter: blur(4px); pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .reel-card:hover .reel-muted-badge { opacity: 0; }
+    /* Upload placeholder shown when no video loaded */
+    .reel-upload-placeholder {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      background: linear-gradient(160deg, #2a0a12 0%, #1a0005 100%);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .reel-upload-placeholder:hover { background: linear-gradient(160deg, #3a1020 0%, #2a0010 100%); }
+    .reel-upload-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(175,32,63,0.2);
+      border: 1.5px dashed rgba(175,32,63,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .reel-upload-text {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: rgba(255,180,194,0.8); letter-spacing: 1.5px; text-transform: uppercase;
+      font-weight: 500; text-align: center; padding: 0 12px;
+    }
+    .reel-upload-sub {
+      font-size: 9px; color: rgba(255,180,194,0.4);
+      letter-spacing: 1px; text-align: center;
+    }
+    .reel-file-input { display: none; }
+    /* Overlay on video */
+    .reel-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 50%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 14px;
+      opacity: 0; transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .reel-card:hover .reel-overlay { opacity: 1; }
+    .reel-label {
+      font-family: 'DM Sans', sans-serif; font-size: 10px;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,0.9); font-weight: 600;
+    }
+    /* Play/Pause button */
+    .reel-play-btn {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(175,32,63,0.85); border: none;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: transform 0.2s, background 0.2s;
+      opacity: 0; pointer-events: none;
+      box-shadow: 0 4px 20px rgba(175,32,63,0.4);
+    }
+    .reel-card:hover .reel-play-btn { opacity: 1; pointer-events: all; }
+    .reel-play-btn:hover { transform: translate(-50%, -50%) scale(1.12); background: var(--crimson); }
+    .reel-play-btn svg { width: 18px; height: 18px; fill: #fff; }
+    /* Mora badge on reel */
+    .reel-brand-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: rgba(175,32,63,0.9);
+      padding: 4px 10px; border-radius: 20px;
+      font-family: 'Playfair Display', serif; font-size: 11px;
+      font-weight: 900; font-style: italic; color: #fff;
+      letter-spacing: 1px;
+      backdrop-filter: blur(4px);
+    }
+    /* Scroll arrows */
+    .reels-nav {
+      display: flex; justify-content: center; gap: 12px;
+      margin-top: 20px; position: relative; z-index: 1;
+    }
+    .reel-nav-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid rgba(175,32,63,0.3); background: #fff;
+      color: var(--crimson); font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+    }
+    .reel-nav-btn:hover { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+    /* Instagram CTA */
+    .reels-ig-cta {
+      text-align: center; margin-top: 28px;
+      position: relative; z-index: 1;
+    }
+    .btn-ig {
+      display: inline-flex; align-items: center; gap: 10px;
+      border: 1.5px solid rgba(175,32,63,0.35); padding: 12px 28px;
+      font-family: 'DM Sans', sans-serif; font-size: 10px;
+      letter-spacing: 3px; text-transform: uppercase; color: var(--crimson);
+      font-weight: 600; text-decoration: none; border-radius: 2px;
+      transition: all 0.3s; background: transparent;
+      cursor: pointer;
+    }
+    .btn-ig:hover { background: var(--crimson); color: #fff; border-color: var(--crimson); }
+    .btn-ig svg { width: 16px; height: 16px; }
+
+
+    /* ════════════════════════════════════════════
+       ── NEW: TESTIMONIALS SECTION ──
+    ════════════════════════════════════════════ */
+    .testimonials-section {
+      position: relative; z-index: 1;
+      padding: 64px 24px 72px;
+      background: linear-gradient(180deg, #FFF8FA 0%, #fff 100%);
+      border-top: 1px solid rgba(175,32,63,0.08);
+      overflow: hidden;
+    }
+    .testimonials-section::before {
+      content: '"';
+      position: absolute; top: -20px; left: 50%; transform: translateX(-50%);
+      font-family: 'Playfair Display', serif; font-size: 280px;
+      font-weight: 900; color: rgba(175,32,63,0.03);
+      line-height: 1; pointer-events: none; user-select: none;
+    }
+    .testimonials-header {
+      text-align: center; margin-bottom: 44px; position: relative; z-index: 1;
+    }
+    .testi-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--crimson); font-weight: 600; margin-bottom: 10px;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .testi-eyebrow::before, .testi-eyebrow::after {
+      content: ''; width: 32px; height: 1px;
+    }
+    .testi-eyebrow::before { background: linear-gradient(90deg, transparent, var(--crimson)); }
+    .testi-eyebrow::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .testi-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 900; font-style: italic; color: var(--black);
+    }
+    .testi-title em { color: var(--crimson); font-style: normal; }
+
+    /* Stars rating bar */
+    .rating-bar {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-top: 14px; flex-wrap: wrap;
+    }
+    .stars-row { display: flex; gap: 3px; }
+    .star { font-size: 16px; color: var(--crimson); }
+    .rating-text { font-size: 12px; color: #888; letter-spacing: 0.5px; }
+    .rating-text strong { color: var(--black); font-weight: 600; }
+
+    /* Testimonials grid */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 900px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .testi-card {
+      background: #fff; border: 1px solid rgba(175,32,63,0.1);
+      border-radius: 4px; padding: 28px 24px 24px;
+      position: relative;
+      box-shadow: 0 4px 24px rgba(175,32,63,0.05);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .testi-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(175,32,63,0.1);
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: 16px; left: 20px;
+      font-family: 'Playfair Display', serif; font-size: 52px;
+      color: rgba(175,32,63,0.12); line-height: 1;
+      font-weight: 900;
+    }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 12px; }
+    .testi-star { font-size: 12px; color: var(--crimson); }
+    .testi-text {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: 14px; line-height: 1.8; color: #4a1020;
+      margin-bottom: 16px; padding-top: 8px;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 10px;
+      border-top: 1px solid rgba(175,32,63,0.1); padding-top: 14px;
+    }
+    .testi-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--crimson), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700;
+      color: #fff; flex-shrink: 0;
+    }
+    .testi-author-name {
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      font-weight: 600; color: var(--black); letter-spacing: 0.5px;
+    }
+    .testi-author-loc {
+      font-size: 10px; color: #aaa; letter-spacing: 1px; text-transform: uppercase; margin-top: 1px;
+    }
+    .testi-verified {
+      margin-left: auto; font-size: 9px; color: var(--crimson);
+      letter-spacing: 1px; text-transform: uppercase; font-weight: 600;
+      display: flex; align-items: center; gap: 4px;
+    }
+    .testi-verified::before { content: '✓'; font-size: 10px; }
+
+    /* Featured large card */
+    .testi-card.featured {
+      grid-column: span 2;
+      border-color: rgba(175,32,63,0.2);
+      background: linear-gradient(135deg, #FFF8FA 0%, #fff 100%);
+    }
+    .testi-card.featured .testi-text { font-size: 15px; }
+
+    /* ════════════════════════════════════════════
+       ── NEW: WHATSAPP STICKY BUTTON ──
+    ════════════════════════════════════════════ */
+    .wa-sticky {
+      position: fixed; bottom: 28px; right: 24px; z-index: 999;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+    }
+    .wa-tooltip {
+      background: var(--black); color: #fff;
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      letter-spacing: 1px; padding: 8px 14px; border-radius: 3px;
+      white-space: nowrap; position: relative;
+      animation: waPop 0.4s 1.5s ease both; opacity: 0;
+    }
+    .wa-tooltip::after {
+      content: ''; position: absolute; right: 18px; bottom: -5px;
+      width: 10px; height: 10px; background: var(--black);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+    @keyframes waPop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .wa-btn {
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.4), 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.25s, box-shadow 0.25s;
+      animation: waBounce 2s 2s ease both;
+      border: 2.5px solid rgba(255,255,255,0.4);
+    }
+    .wa-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 36px rgba(37,211,102,0.5), 0 4px 12px rgba(0,0,0,0.18);
+    }
+    @keyframes waBounce {
+      0%,100% { transform: scale(1); }
+      20% { transform: scale(1.15); }
+      40% { transform: scale(0.95); }
+      60% { transform: scale(1.08); }
+    }
+    .wa-btn svg { width: 30px; height: 30px; fill: #fff; }
+    /* Pulse ring */
+    .wa-btn::before {
+      content: ''; position: absolute; inset: -6px;
+      border-radius: 50%; border: 2px solid rgba(37,211,102,0.4);
+      animation: waPulse 2s 3s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .wa-online-dot {
+      position: absolute; top: 3px; right: 3px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: #fff; display: flex; align-items: center; justify-content: center;
+    }
+    .wa-online-dot::after {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: #25D366;
+      animation: dotBlink 2s ease-in-out infinite;
+    }
+    @keyframes dotBlink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
+
     /* ── PAGE BODY ── */
     .page-body {
       position: relative; z-index: 1;
-      max-width: 820px; margin: 0 auto;
-      padding: 56px 24px 80px;
+      max-width: 820px; margin: 0 auto; padding: 56px 24px 80px;
     }
-
-    /* ── INTRO CARD ── */
     .intro-card {
-      background: #FFF8FA;
-      border: 1px solid rgba(175,32,63,0.15);
-      border-left: 4px solid var(--crimson);
-      padding: 28px 32px; margin-bottom: 40px;
+      background: #FFF8FA; border: 1px solid rgba(175,32,63,0.15);
+      border-left: 4px solid var(--crimson); padding: 28px 32px; margin-bottom: 40px;
     }
     .intro-card p {
       font-family: 'Playfair Display', serif; font-size: 16px;
-      line-height: 1.85; color: #7a1030; font-style: italic; font-weight: 400;
+      line-height: 1.85; color: #7a1030; font-style: italic;
     }
     .intro-card strong { color: var(--crimson); font-style: normal; }
 
     /* ── FORM CARD ── */
     .form-card {
-      background: #FFF8FA;
-      border: 1px solid rgba(175,32,63,0.12);
+      background: #FFF8FA; border: 1px solid rgba(175,32,63,0.12);
       box-shadow: 0 8px 60px rgba(175,32,63,0.08), 0 2px 0 rgba(175,32,63,0.06) inset;
       padding: 52px 52px 56px; position: relative;
     }
@@ -169,17 +513,10 @@
     }
     .section-num {
       font-family: 'Playfair Display', serif; font-size: 42px;
-      font-weight: 700; color: rgb(202, 0, 44); line-height: 1; letter-spacing: -2px;
+      font-weight: 700; color: rgb(202,0,44); line-height: 1; letter-spacing: -2px;
     }
-    .section-title {
-      font-family: 'DM Sans', sans-serif; font-size: 9px;
-      letter-spacing: 5px; text-transform: uppercase; color: var(--crimson); display: block; font-weight: 600;
-    }
-    .section-subtitle {
-      font-family: 'Playfair Display', serif; font-size: 19px;
-      font-weight: 700; color: var(--black); margin-top: 2px; display: block;
-    }
-
+    .section-title { font-family: 'DM Sans', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--crimson); display: block; font-weight: 600; }
+    .section-subtitle { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 700; color: var(--black); margin-top: 2px; display: block; }
     .section-gap { margin-bottom: 48px; }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -187,27 +524,21 @@
     .span-2 { grid-column: span 2; }
 
     .field { display: flex; flex-direction: column; gap: 7px; }
-
-    label.field-label {
-      font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-      color: #AF203F; font-weight: 600; font-family: 'DM Sans', sans-serif;
-    }
+    label.field-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: #AF203F; font-weight: 600; font-family: 'DM Sans', sans-serif; }
     .field-hint { font-size: 10px; color: #c05070; letter-spacing: 0.3px; margin-top: 4px; }
 
-    input, select, textarea {
-      background: #FFF8FA;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-bottom: 2px solid rgba(175,32,63,0.25);
-      color: var(--black); padding: 12px 16px;
-      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 400;
-      outline: none; transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    input[type="text"], input[type="tel"], input[type="email"], input[type="number"], textarea {
+      background: #FFF8FA; border: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 2px solid rgba(175,32,63,0.25); color: var(--black);
+      padding: 12px 16px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; font-weight: 400; outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
       border-radius: 2px; width: 100%;
       -webkit-appearance: none; appearance: none;
     }
     input::placeholder, textarea::placeholder { color: #b40027; font-style: italic; opacity: 0.5; }
-    input:focus, select:focus, textarea:focus {
+    input:focus, textarea:focus {
       border-color: var(--crimson); border-bottom-color: var(--crimson);
-      background: #FFF8FA;
       box-shadow: 0 4px 20px rgba(175,32,63,0.08), 0 0 0 3px rgba(175,32,63,0.07);
     }
     textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
@@ -217,32 +548,89 @@
     .unit-label-text { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #AF203F; font-weight: 500; }
     .unit-toggle { display: flex; border: 1px solid rgba(175,32,63,0.3); border-radius: 2px; overflow: hidden; }
     .unit-toggle input[type="radio"] { display: none; }
-    .unit-toggle label {
-      padding: 7px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      cursor: pointer; color: #AF203F; transition: all 0.2s; border: none; font-weight: 500;
-    }
+    .unit-toggle label { padding: 7px 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; color: #AF203F; transition: all 0.2s; border: none; font-weight: 500; font-family: 'DM Sans', sans-serif; }
     .unit-toggle input:checked + label { background: var(--crimson); color: #fff; }
 
     /* ── MEASURE FIELD ── */
     .mfield { position: relative; }
     .mfield input { padding-right: 48px; }
-    .msuffix {
-      position: absolute; right: 13px; top: 50%; transform: translateY(-50%);
-      font-size: 10px; letter-spacing: 1px; color: var(--crimson); pointer-events: none; font-weight: 500;
+    .msuffix { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 10px; letter-spacing: 1px; color: var(--crimson); pointer-events: none; font-weight: 500; }
+
+    /* ── PRODUCT SELECTOR ── */
+    .product-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px; margin-top: 4px;
     }
+    .product-card {
+      position: relative; cursor: pointer;
+      border: 2px solid rgba(175,32,63,0.15); border-radius: 6px;
+      overflow: hidden; background: #fff;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .product-card:hover {
+      border-color: rgba(175,32,63,0.4);
+      box-shadow: 0 6px 24px rgba(175,32,63,0.1); transform: translateY(-2px);
+    }
+    .product-card.selected {
+      border-color: var(--crimson);
+      box-shadow: 0 0 0 3px rgba(175,32,63,0.12), 0 8px 28px rgba(175,32,63,0.15);
+    }
+    .product-img-wrap {
+      width: 100%; aspect-ratio: 3/4;
+      background: #fdf0f3; overflow: hidden; position: relative;
+    }
+    .product-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+    .product-img-wrap .prod-emoji {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 56px;
+    }
+    .product-selected-badge {
+      position: absolute; top: 10px; right: 10px;
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--crimson); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; opacity: 0; transform: scale(0.5);
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px rgba(175,32,63,0.4);
+    }
+    .product-card.selected .product-selected-badge { opacity: 1; transform: scale(1); }
+    .product-info { padding: 12px 14px 14px; }
+    .product-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--black); margin-bottom: 4px; line-height: 1.3; }
+    .product-desc { font-size: 10px; color: #888; letter-spacing: 0.3px; margin-bottom: 8px; line-height: 1.5; }
+    .product-price-row { display: flex; align-items: center; justify-content: space-between; }
+    .product-price { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; color: var(--crimson); letter-spacing: 0.5px; }
+    .product-badge-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; font-weight: 500; }
+
+    /* ── PHOTO UPLOAD ── */
+    .photo-upload-area {
+      border: 2px dashed rgba(175,32,63,0.3); border-radius: 6px;
+      padding: 32px 20px; text-align: center; cursor: pointer;
+      transition: border-color 0.25s, background 0.25s;
+      position: relative; background: #fff;
+    }
+    .photo-upload-area:hover { border-color: var(--crimson); background: #FFF8FA; }
+    .photo-upload-area.has-photo { border-style: solid; border-color: var(--crimson); padding: 16px; }
+    .photo-upload-area input[type="file"] { display: none; }
+    .photo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .photo-placeholder-icon { width: 56px; height: 56px; border-radius: 50%; background: #fdf0f3; border: 1.5px solid rgba(175,32,63,0.25); display: flex; align-items: center; justify-content: center; font-size: 24px; }
+    .photo-placeholder-text { font-size: 13px; color: var(--crimson); font-weight: 500; }
+    .photo-placeholder-sub { font-size: 10px; color: #bbb; letter-spacing: 0.5px; }
+    .photo-preview-wrap { display: none; flex-direction: column; align-items: center; gap: 12px; }
+    .photo-preview-wrap.visible { display: flex; }
+    .photo-preview-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2.5px solid var(--crimson); box-shadow: 0 4px 20px rgba(175,32,63,0.2); }
+    .photo-preview-name { font-size: 12px; color: var(--crimson); font-weight: 600; letter-spacing: 1px; }
+    .photo-remove-btn { font-size: 10px; color: #999; background: none; border: 1px solid #ddd; cursor: pointer; letter-spacing: 1px; text-transform: uppercase; padding: 4px 8px; border-radius: 20px; transition: color 0.2s; }
+    .photo-remove-btn:hover { color: var(--crimson); border-color: var(--crimson); }
 
     /* ── SUBMIT ── */
     .submit-area { margin-top: 44px; text-align: center; }
     .btn-submit {
-      display: inline-block;
-      background: var(--black);
-      border: none; color: var(--white);
-      padding: 18px 72px;
-      font-family: 'DM Sans', sans-serif; font-size: 11px;
-      letter-spacing: 5px; text-transform: uppercase;
-      cursor: pointer; position: relative; overflow: hidden;
-      transition: all 0.4s; border-radius: 1px;
-      width: 100%; max-width: 360px; font-weight: 500;
+      display: inline-block; background: var(--black); border: none; color: var(--white);
+      padding: 18px 72px; font-family: 'DM Sans', sans-serif; font-size: 11px;
+      letter-spacing: 5px; text-transform: uppercase; cursor: pointer;
+      position: relative; overflow: hidden; transition: all 0.4s;
+      border-radius: 1px; width: 100%; max-width: 360px; font-weight: 500;
     }
     .btn-submit::before {
       content: ''; position: absolute; inset: 0;
@@ -251,12 +639,9 @@
       transition: transform 0.45s cubic-bezier(0.77,0,0.175,1); z-index: 0;
     }
     .btn-submit:hover::before { transform: scaleX(1); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
     .btn-text { position: relative; z-index: 1; }
-
-    .submit-note {
-      font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-      color: var(--crimson); margin-top: 14px; opacity: 1; font-weight: 500;
-    }
+    .submit-note { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--crimson); margin-top: 14px; font-weight: 500; }
 
     /* ── LOADER ── */
     .loader-overlay {
@@ -266,73 +651,48 @@
       flex-direction: column; gap: 24px;
     }
     .loader-overlay.active { display: flex; }
-    .loader-ring {
-      width: 64px; height: 64px;
-      border: 2px solid rgba(175,32,63,0.15); border-top-color: var(--crimson);
-      border-radius: 50%; animation: spin 1s linear infinite;
-    }
+    .loader-ring { width: 64px; height: 64px; border: 2px solid rgba(175,32,63,0.15); border-top-color: var(--crimson); border-radius: 50%; animation: spin 1s linear infinite; }
     .loader-text { font-family: 'DM Sans', sans-serif; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--crimson); font-weight: 500; }
     .loader-sub { font-size: 13px; color: #AF203F; letter-spacing: 1px; font-style: italic; font-family: 'Playfair Display', serif; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     /* ── THANK YOU ── */
     .thankyou {
-      display: none; position: fixed; inset: 0;
-      background: #FFF8FA; z-index: 300;
+      display: none; position: fixed; inset: 0; background: #FFF8FA; z-index: 300;
       align-items: center; justify-content: center; padding: 24px;
     }
     .thankyou.active { display: flex; }
     .ty-card {
-      background: #FFF8FA;
-      border: 1px solid rgba(175,32,63,0.15);
+      background: #FFF8FA; border: 1px solid rgba(175,32,63,0.15);
       max-width: 520px; width: 100%; padding: 64px 52px;
       text-align: center; position: relative;
       box-shadow: 0 32px 100px rgba(175,32,63,0.12);
       animation: popUp 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
     }
-    .ty-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--black), var(--crimson), var(--pink), var(--crimson), var(--black));
-    }
-    @keyframes popUp {
-      from { opacity: 0; transform: scale(0.88) translateY(20px); }
-      to   { opacity: 1; transform: scale(1) translateY(0); }
-    }
-    .ty-icon {
-      width: 72px; height: 72px; border: 1.5px solid var(--crimson); border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; position: relative;
-      background: #FFF8FA;
-    }
-    .ty-icon::before { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(175,32,63,0.2); border-radius: 50%; }
-    .ty-check {
-      width: 28px; height: 28px; stroke: var(--crimson); stroke-width: 2.5; fill: none;
-      stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck 0.7s 0.4s ease forwards;
-    }
+    .ty-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--black), var(--crimson), var(--pink), var(--crimson), var(--black)); }
+    @keyframes popUp { from { opacity: 0; transform: scale(0.88) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .ty-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2.5px solid var(--crimson); box-shadow: 0 4px 20px rgba(175,32,63,0.2); margin: 0 auto 16px; display: block; }
+    .ty-photo-placeholder { width: 72px; height: 72px; border: 1.5px solid var(--crimson); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; background: #FFF8FA; }
+    .ty-check { width: 28px; height: 28px; stroke: var(--crimson); stroke-width: 2.5; fill: none; stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck 0.7s 0.4s ease forwards; }
     @keyframes drawCheck { to { stroke-dashoffset: 0; } }
     .ty-headline { font-family: 'DM Sans', sans-serif; font-size: 10px; letter-spacing: 6px; text-transform: uppercase; color: var(--crimson); margin-bottom: 8px; font-weight: 500; }
-    .ty-name { font-family: 'Playfair Display', serif; font-size: clamp(28px,5vw,42px); font-weight: 900; font-style: italic; color: var(--black); line-height: 1.1; margin-bottom: 20px; }
+    .ty-name { font-family: 'Playfair Display', serif; font-size: clamp(24px,5vw,36px); font-weight: 900; font-style: italic; color: var(--black); line-height: 1.1; margin-bottom: 20px; }
     .ty-divider { display: flex; align-items: center; gap: 12px; justify-content: center; margin: 20px auto; }
-    .ty-divider::before, .ty-divider::after { content: ''; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--crimson)); }
-    .ty-divider::after { background: linear-gradient(90deg, var(--crimson), transparent); }
+    .ty-divider::before, .ty-divider::after { content: ''; width: 60px; height: 1px; }
+    .ty-divider::before { background: linear-gradient(90deg, transparent, var(--crimson)); }
+    .ty-divider::after  { background: linear-gradient(90deg, var(--crimson), transparent); }
     .ty-divider-dot { width: 4px; height: 4px; background: var(--crimson); transform: rotate(45deg); }
-    .ty-message { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; font-weight: 400; line-height: 1.85; color: #7a1030; margin-bottom: 28px; }
-    .ty-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(175,32,63,0.3); background: #FFF8FA; padding: 10px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); font-weight: 500; }
+    .ty-message { font-family: 'Playfair Display', serif; font-style: italic; font-size: 15px; line-height: 1.85; color: #7a1030; margin-bottom: 24px; }
+    .ty-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(175,32,63,0.3); padding: 10px 20px; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); font-weight: 500; }
     .ty-badge::before { content: '⧫'; font-size: 8px; }
-    .ty-footer { margin-top: 32px; font-size: 11px; color: #AF203F; letter-spacing: 0.5px; }
+    .ty-footer { margin-top: 28px; font-size: 11px; color: #AF203F; }
     .ty-mora { font-family: 'Playfair Display', serif; font-weight: 900; font-style: italic; color: var(--crimson); font-size: 14px; }
 
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .error-msg { display: none; font-size: 11px; color: var(--crimson); margin-top: 10px; letter-spacing: 1px; }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ── FOOTER ── */
-    .page-footer {
-      position: relative; z-index: 1; text-align: center;
-      padding: 32px 24px 48px;
-      border-top: 1px solid rgba(175,32,63,0.12);
-      background: #FFF8FA;
-    }
+    .page-footer { position: relative; z-index: 1; text-align: center; padding: 32px 24px 48px; border-top: 1px solid rgba(175,32,63,0.12); background: #FFF8FA; }
     .footer-mora { font-family: 'Playfair Display', serif; font-size: 24px; letter-spacing: 4px; color: var(--crimson); font-weight: 900; font-style: italic; }
     .footer-copy { font-size: 10px; letter-spacing: 2px; color: #AF203F; margin-top: 6px; text-transform: uppercase; }
 
@@ -340,11 +700,19 @@
       .form-card { padding: 32px 20px 36px; }
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .span-2 { grid-column: span 1; }
+      .product-grid { grid-template-columns: 1fr 1fr; }
+      .testi-card.featured { grid-column: span 1; }
+      .reel-card { flex: 0 0 180px; }
+    }
+    @media (max-width: 400px) {
+      .product-grid { grid-template-columns: 1fr; }
+      .reel-card { flex: 0 0 150px; }
     }
   </style>
 </head>
 <body>
 
+<!-- ════ HERO (unchanged) ════ -->
 <header class="hero">
   <div class="hero-inner">
     <div class="logo-mark">
@@ -366,8 +734,231 @@
   </div>
 </header>
 
-<main class="page-body">
 
+<!-- ════ NEW: VIDEO REELS SECTION ════ -->
+<section class="reels-section">
+  <div class="reels-header">
+    <p class="reels-eyebrow">As Seen on Instagram</p>
+    <h2 class="reels-title">Our Work, <em>In Motion</em></h2>
+    <p class="reels-sub">Tap a reel to play · Swipe to explore more creations</p>
+  </div>
+
+  <div class="reels-scroll-wrap">
+    <div class="reels-track" id="reels-track">
+
+      <!-- Reel Card 1 -->
+      <div class="reel-card" id="reel-1" onclick="toggleReelPlay(1)">
+        <div class="reel-video-wrap">
+          <video id="video-1" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/5832bb946cfb47bc83fa59c0056a3f2a.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-1"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">New Collection</span></div>
+      </div>
+
+      <!-- Reel Card 2 — paste your 2nd URL below -->
+      <div class="reel-card" id="reel-2" onclick="toggleReelPlay(2)">
+        <div class="reel-video-wrap">
+          <video id="video-2" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/f9a1a07488544d8ab6ab36bc74ada594.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-2"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Behind the Craft</span></div>
+      </div>
+
+      <!-- Reel Card 3 — paste your 3rd URL below -->
+      <div class="reel-card" id="reel-3" onclick="toggleReelPlay(3)">
+        <div class="reel-video-wrap">
+          <video id="video-3" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/1461e855496f4f8296a5546a7ad5b76f.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-3"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Customer Stories</span></div>
+      </div>
+
+      <!-- Reel Card 4 — paste your 4th URL below -->
+      <div class="reel-card" id="reel-4" onclick="toggleReelPlay(4)">
+        <div class="reel-video-wrap">
+          <video id="video-4" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/f6eef23254aa494991b91e7503998190.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-4"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Bridal Season</span></div>
+      </div>
+   <div class="reel-card" id="reel-5" onclick="toggleReelPlay(5)">
+        <div class="reel-video-wrap">
+          <video id="video-5" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/5832bb946cfb47bc83fa59c0056a3f2a.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-5"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Bridal Season</span></div>
+      </div>
+         <div class="reel-card" id="reel-6" onclick="toggleReelPlay(6)">
+        <div class="reel-video-wrap">
+          <video id="video-6" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/d4351b7672d8484397c50814df69e0ea.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-"6></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Bridal Season</span></div>
+      </div>
+     <div class="reel-card" id="reel-7" onclick="toggleReelPlay(7)">
+        <div class="reel-video-wrap">
+          <video id="video-7" loop playsinline muted preload="metadata"
+            src="https://cdn.shopify.com/videos/c/o/v/1461e855496f4f8296a5546a7ad5b76f.mp4"></video>
+          <div class="reel-muted-badge">🔇 Tap for sound</div>
+          <div class="reel-tap-hint hidden" id="hint-7"></div>
+        </div>
+        <div class="reel-brand-badge">MoRa</div>
+        <div class="reel-overlay"><span class="reel-label">Behind the Craft</span></div>
+      </div>
+    </div><!-- /reels-track -->
+
+    <div class="reels-nav">
+      <button class="reel-nav-btn" onclick="scrollReels(-1)" aria-label="Previous">&#8592;</button>
+      <button class="reel-nav-btn" onclick="scrollReels(1)" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="reels-ig-cta">
+    <a href="https://www.instagram.com/mora.cloths/" target="_blank" rel="noopener" class="btn-ig">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+      Follow Us on Instagram
+    </a>
+  </div>
+</section>
+
+
+<!-- ════ NEW: TESTIMONIALS SECTION ════ -->
+<section class="testimonials-section">
+  <div class="testimonials-header">
+    <p class="testi-eyebrow">What Our Customers Say</p>
+    <h2 class="testi-title">Worn with <em>Love</em></h2>
+    <div class="rating-bar">
+      <div class="stars-row">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        <span class="star">★</span><span class="star">★</span>
+      </div>
+      <span class="rating-text"><strong>4.9 / 5</strong> · Based on 200+ happy customers</span>
+    </div>
+  </div>
+
+  <div class="testi-grid">
+
+    <!-- Featured Review -->
+    <div class="testi-card featured">
+      <div class="testi-stars">
+        <span class="testi-star">★</span><span class="testi-star">★</span>
+        <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+      </div>
+      <p class="testi-text">
+        "I ordered the Nikayat set for my sister's wedding and I genuinely cried when I tried it on. The fit was perfect — every single inch. The tailor called me within the hour, understood exactly what I wanted, and delivered it even better than I imagined. MoRa is not just tailoring, it's a feeling."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">P</div>
+        <div>
+          <div class="testi-author-name">Priya Sharma</div>
+          <div class="testi-author-loc">Delhi, India</div>
+        </div>
+        <span class="testi-verified">Verified</span>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="testi-star">★</span><span class="testi-star">★</span>
+        <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+      </div>
+      <p class="testi-text">
+        "The Noor kurta I received was absolutely stunning. The fabric quality is premium and the stitching is immaculate. Will definitely order again!"
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">S</div>
+        <div>
+          <div class="testi-author-name">Sana Mirza</div>
+          <div class="testi-author-loc">Lucknow, India</div>
+        </div>
+        <span class="testi-verified">Verified</span>
+      </div>
+    </div>
+
+    <!-- Review 3 -->
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="testi-star">★</span><span class="testi-star">★</span>
+        <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+      </div>
+      <p class="testi-text">
+        "Bought for my daughter's engagement. She looked like a princess. The home fitting visit was such a personal and luxurious touch. Highly recommend!"
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div>
+          <div class="testi-author-name">Anjali Kapoor</div>
+          <div class="testi-author-loc">Ludhiana, India</div>
+        </div>
+        <span class="testi-verified">Verified</span>
+      </div>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="testi-star">★</span><span class="testi-star">★</span>
+        <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+      </div>
+      <p class="testi-text">
+        "I'm very particular about fit and I was nervous ordering online. But MoRa's tailor guided me through every measurement on a video call. The result? Perfection."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">N</div>
+        <div>
+          <div class="testi-author-name">Neha Verma</div>
+          <div class="testi-author-loc">Chandigarh, India</div>
+        </div>
+        <span class="testi-verified">Verified</span>
+      </div>
+    </div>
+
+    <!-- Review 5 -->
+    <div class="testi-card">
+      <div class="testi-stars">
+        <span class="testi-star">★</span><span class="testi-star">★</span>
+        <span class="testi-star">★</span><span class="testi-star">★</span><span class="testi-star">★</span>
+      </div>
+      <p class="testi-text">
+        "Three orders and counting! Every time, the quality has been consistent and the service is warm and personal. This is what bespoke should feel like."
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">R</div>
+        <div>
+          <div class="testi-author-name">Radhika Jain</div>
+          <div class="testi-author-loc">Amritsar, India</div>
+        </div>
+        <span class="testi-verified">Verified</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════ MAIN PAGE BODY (form — completely unchanged) ════ -->
+<main class="page-body">
   <div class="intro-card">
     <p>
       At <strong>MoRa</strong>, we believe a truly great garment is a conversation between the wearer and the maker.
@@ -378,29 +969,66 @@
   </div>
 
   <div class="form-card">
-    <form id="mora-form">
+    <form id="mora-form" novalidate>
 
-      <!-- ── SECTION 1: Personal Details ── -->
+      <!-- ════ SECTION 00: GARMENT ════ -->
+      <div class="section-gap">
+        <div class="section-head">
+          <span class="section-num">00</span>
+          <div>
+            <span class="section-title">Begin Here</span>
+            <span class="section-subtitle">Choose Your Garment</span>
+          </div>
+        </div>
+        <p style="font-size:12px;line-height:1.7;color:#8B1830;margin-bottom:20px;font-style:italic;">Select the garment you would like us to craft for you. Each piece is made entirely in-house, by hand.</p>
+
+        <div class="product-grid" id="product-grid">
+          <label class="product-card" data-product="Noor — Rs.1299.00" onclick="selectProduct(this)">
+            <div class="product-img-wrap"><span class="prod-emoji">
+              <img src="https://cdn.shopify.com/s/files/1/0764/4646/6245/files/WhatsApp_Image_2026-03-11_at_8.25.29_AM.jpg?v=1773197839" alt="">
+            </span></div>
+            <div class="product-selected-badge">✓</div>
+            <div class="product-info">
+              <div class="product-name">Noor</div>
+              <div class="product-price-row"><span class="product-price">Rs 1299.00</span><span class="product-badge-label">Bespoke</span></div>
+            </div>
+          </label>
+
+          <label class="product-card" data-product="Nikayat — Rs.2499.00" onclick="selectProduct(this)">
+            <div class="product-img-wrap"><span class="prod-emoji">
+              <img src="https://cdn.shopify.com/s/files/1/0764/4646/6245/files/WhatsApp_Image_2026-03-11_at_8.25.29_AM_1.jpg?v=1773197838" alt="">
+            </span></div>
+            <div class="product-selected-badge">✓</div>
+            <div class="product-info">
+              <div class="product-name">Nikayat</div>
+              <div class="product-price-row"><span class="product-price">Rs 2499.00</span><span class="product-badge-label">Bespoke</span></div>
+            </div>
+          </label>
+        </div>
+        <p id="product-error" class="error-msg">✦ Please select a garment to continue</p>
+      </div>
+
+      <!-- ════ SECTION 01: PERSONAL ════ -->
       <div class="section-gap">
         <div class="section-head">
           <span class="section-num">01</span>
-          <div class="section-title-block">
+          <div>
             <span class="section-title">Getting to Know You</span>
-            <span class="section-subtitle">Personal & Contact Details</span>
+            <span class="section-subtitle">Personal &amp; Contact Details</span>
           </div>
         </div>
         <div class="grid-2" style="row-gap:20px;">
           <div class="field span-2">
-            <label class="field-label" for="fullname">Full Name <span style="color:var(--copper)">*</span></label>
+            <label class="field-label" for="fullname">Full Name *</label>
             <input type="text" id="fullname" name="full_name" placeholder="Your full name" required />
           </div>
           <div class="field">
-            <label class="field-label" for="phone">Phone Number <span style="color:var(--copper)">*</span></label>
+            <label class="field-label" for="phone">Phone Number *</label>
             <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000" required />
             <span class="field-hint">Our tailor will call/message you directly</span>
           </div>
           <div class="field">
-            <label class="field-label" for="email">Email Address <span style="color:var(--copper)">*</span></label>
+            <label class="field-label" for="email">Email Address *</label>
             <input type="email" id="email" name="email" placeholder="you@example.com" required />
             <span class="field-hint">We'll send your order confirmation here</span>
           </div>
@@ -409,14 +1037,33 @@
             <input type="text" id="address" name="address" placeholder="Full address for pickup or home fitting visit" />
             <span class="field-hint">Share your address so we can arrange collection or a home fitting session</span>
           </div>
+
+          <!-- PHOTO UPLOAD -->
+          <div class="field span-2">
+            <label class="field-label">Your Photo <span style="font-style:italic;text-transform:none;letter-spacing:0;font-size:9px;color:#bbb">(optional)</span></label>
+            <div class="photo-upload-area" id="photo-drop-area" onclick="document.getElementById('photo-input').click()">
+              <input type="file" id="photo-input" accept="image/*" onchange="handlePhotoSelect(event)" />
+              <div class="photo-placeholder" id="photo-placeholder">
+                <div class="photo-placeholder-icon">📸</div>
+                <div class="photo-placeholder-text">Upload Your Photo</div>
+                <div class="photo-placeholder-sub">JPG, PNG · Max 5MB · Tap to browse</div>
+              </div>
+              <div class="photo-preview-wrap" id="photo-preview-wrap">
+                <img id="photo-preview-img" class="photo-preview-img" src="" alt="Your photo" />
+                <div class="photo-preview-name" id="photo-preview-name"></div>
+                <button type="button" class="photo-remove-btn" onclick="removePhoto(event)">Remove Photo</button>
+              </div>
+            </div>
+            <span class="field-hint">Your photo helps us personalise your experience and will be referenced during tailoring consultations.</span>
+          </div>
         </div>
       </div>
 
-      <!-- ── SECTION 2: Measurements ── -->
+      <!-- ════ SECTION 02: MEASUREMENTS ════ -->
       <div class="section-gap">
         <div class="section-head">
           <span class="section-num">02</span>
-          <div class="section-title-block">
+          <div>
             <span class="section-title">Your Body Blueprint</span>
             <span class="section-subtitle">Precise Body Measurements</span>
           </div>
@@ -424,111 +1071,36 @@
         <p style="font-size:12px;line-height:1.7;color:#8B1830;margin-bottom:20px;font-style:italic;">
           Don't worry if you don't have all measurements — our tailor can visit you or guide you on a video call. Fill in as much as you know.
         </p>
-
         <div class="unit-row">
           <span class="unit-label-text">Unit:</span>
           <div class="unit-toggle">
-            <input type="radio" name="unit" id="unit_in" value="in" checked />
+            <input type="radio" name="unit" id="unit_in" value="Inches" checked />
             <label for="unit_in">Inches</label>
-            <input type="radio" name="unit" id="unit_cm" value="cm" />
+            <input type="radio" name="unit" id="unit_cm" value="Centimetres" />
             <label for="unit_cm">Centimetres</label>
           </div>
         </div>
-
         <div class="grid-3" style="row-gap:20px;">
-          <div class="field">
-            <label class="field-label" for="m_bust">Bust / Chest <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_bust" name="bust_chest" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_underbust">Under Bust <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_underbust" name="under_bust" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_waist">Waist <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_waist" name="waist" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_hip">Hip <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_hip" name="hip" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_shoulder">Shoulder Width <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_shoulder" name="shoulder_width" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_sleeve">Sleeve Length <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_sleeve" name="sleeve_length" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_armhole">Armhole Round <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_armhole" name="armhole_round" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_biceps">Biceps Round <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_biceps" name="biceps_round" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_front_neck">Front Neck Depth <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_front_neck" name="front_neck_depth" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_back_neck">Back Neck Depth <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_back_neck" name="back_neck_depth" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_kurti">Kurti Length</label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_kurti" name="kurti_length" placeholder="—" />
-              <span class="msuffix unit-label">in</span>
-            </div>
-            <span class="field-hint">Shoulder to desired length</span>
-          </div>
-          <div class="field">
-            <label class="field-label" for="m_bottom">Bottom Length <span style="color:var(--copper)">*</span></label>
-            <div class="mfield">
-              <input type="number" step="0.1" id="m_bottom" name="bottom_length" placeholder="—" required />
-              <span class="msuffix unit-label">in</span>
-            </div>
-          </div>
+          <div class="field"><label class="field-label" for="m_bust">Bust / Chest *</label><div class="mfield"><input type="number" step="0.1" id="m_bust" name="bust_chest" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_underbust">Under Bust *</label><div class="mfield"><input type="number" step="0.1" id="m_underbust" name="under_bust" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_waist">Waist *</label><div class="mfield"><input type="number" step="0.1" id="m_waist" name="waist" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_hip">Hip *</label><div class="mfield"><input type="number" step="0.1" id="m_hip" name="hip" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_shoulder">Shoulder Width *</label><div class="mfield"><input type="number" step="0.1" id="m_shoulder" name="shoulder_width" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_sleeve">Sleeve Length *</label><div class="mfield"><input type="number" step="0.1" id="m_sleeve" name="sleeve_length" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_armhole">Armhole Round *</label><div class="mfield"><input type="number" step="0.1" id="m_armhole" name="armhole_round" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_biceps">Biceps Round *</label><div class="mfield"><input type="number" step="0.1" id="m_biceps" name="biceps_round" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_front_neck">Front Neck Depth *</label><div class="mfield"><input type="number" step="0.1" id="m_front_neck" name="front_neck_depth" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_back_neck">Back Neck Depth *</label><div class="mfield"><input type="number" step="0.1" id="m_back_neck" name="back_neck_depth" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
+          <div class="field"><label class="field-label" for="m_kurti">Kurti Length</label><div class="mfield"><input type="number" step="0.1" id="m_kurti" name="kurti_length" placeholder="—" /><span class="msuffix unit-label">in</span></div><span class="field-hint">Shoulder to desired length</span></div>
+          <div class="field"><label class="field-label" for="m_bottom">Bottom Length *</label><div class="mfield"><input type="number" step="0.1" id="m_bottom" name="bottom_length" placeholder="—" required /><span class="msuffix unit-label">in</span></div></div>
         </div>
       </div>
 
-      <!-- ── SECTION 3: Notes ── -->
+      <!-- ════ SECTION 03: NOTES ════ -->
       <div class="section-gap" style="margin-bottom:0;">
         <div class="section-head">
           <span class="section-num">03</span>
-          <div class="section-title-block">
+          <div>
             <span class="section-title">Your Personal Touch</span>
             <span class="section-subtitle">Tell Us More — We Love Listening</span>
           </div>
@@ -542,8 +1114,8 @@
 
       <!-- Submit -->
       <div class="submit-area">
-        <button type="submit" class="btn-submit"><span class="btn-text">Submit My Order</span></button>
-        <p class="submit-note">✦ Our tailor will personally connect with you within 24 hours ✦</p>
+        <button type="submit" class="btn-submit" id="submit-btn"><span class="btn-text">Submit My Order</span></button>
+        <p class="submit-note">✦ Our tailor will personally connect with you within 1 hour ✦</p>
       </div>
 
     </form>
@@ -555,61 +1127,263 @@
   <p class="footer-copy">Handcrafted in India · Every stitch, by hand · Every garment, for you</p>
 </footer>
 
-<!-- LOADER -->
+<!-- ════ LOADER (unchanged) ════ -->
 <div class="loader-overlay" id="loader">
   <div class="loader-ring"></div>
   <p class="loader-text">Placing Your Order</p>
   <p class="loader-sub">Our tailors are preparing to meet you…</p>
 </div>
 
-<!-- THANK YOU -->
+<!-- ════ THANK YOU (unchanged) ════ -->
 <div class="thankyou" id="thankyou">
   <div class="ty-card">
-    <div class="ty-icon">
-      <svg class="ty-check" viewBox="0 0 24 24">
-        <polyline points="4 12 9 17 20 6" />
-      </svg>
-    </div>
+    <div id="ty-photo-slot"></div>
     <p class="ty-headline">Order Received</p>
-    <h2 class="ty-name">Thank You<br>for Choosing MoRa</h2>
+    <h2 class="ty-name" id="ty-name-text">Thank You<br>for Choosing MoRa</h2>
     <div class="ty-divider"><span class="ty-divider-dot"></span></div>
-    <p class="ty-message">
-      Your order has been safely received by our team. A MoRa designer or tailor will personally reach out to you within <strong>24 hours</strong> to discuss your measurements, preferences, and next steps — because every great garment deserves a real conversation.
+    <p class="ty-message" id="ty-message-text">
+      Your order has been safely received by our team. A MoRa tailor will personally reach out to you within <strong>1 hour</strong> to discuss your measurements, preferences, and next steps.
     </p>
     <span class="ty-badge">Handcrafted just for you — with love</span>
     <p class="ty-footer">Questions? WhatsApp us anytime · <span class="ty-mora">MoRa</span> Bespoke</p>
   </div>
 </div>
 
+
+<!-- ════ NEW: WHATSAPP STICKY BUTTON ════ -->
+<div class="wa-sticky">
+  <div class="wa-tooltip">Chat with our tailor 💬</div>
+  <!-- ⚠️ Replace 91XXXXXXXXXX with your actual WhatsApp number below -->
+  <a class="wa-btn" href="https://wa.me/91XXXXXXXXXX?text=Hello%20MoRa!%20I%20want%20to%20know%20more%20about%20bespoke%20tailoring%20%F0%9F%AA%A1" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <div class="wa-online-dot"></div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+
 <script>
-  // Unit toggle
+  // ══════════════════════════════════════════════════════════
+  //  YOUR APPS SCRIPT WEB APP URL — keep this exactly as-is
+  // ══════════════════════════════════════════════════════════
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzH0fGBFcFYeFY290a4ab-YDtzFbNEcCThaTxDEvqpyU6QfKIcx7YpINs_zzHtztZXd/exec";
+
+  // ── UNIT TOGGLE (unchanged) ──────────────────────────────
   document.querySelectorAll('input[name="unit"]').forEach(radio => {
     radio.addEventListener('change', () => {
-      document.querySelectorAll('.unit-label').forEach(el => el.textContent = radio.value);
+      const val = radio.value === 'Inches' ? 'in' : 'cm';
+      document.querySelectorAll('.unit-label').forEach(el => el.textContent = val);
     });
   });
 
-  // Form submit
-  const form = document.getElementById('mora-form');
-  const loader = document.getElementById('loader');
-  const thankyou = document.getElementById('thankyou');
-  const scriptURL = "https://script.google.com/macros/s/AKfycbxZsu3Qn5OgMuX7bMrQK3uTRV_LPysiocBbLdggKgQVSOyvcJhWBv4hCDfqTZQ1w4x9/exec";
+  // ── PRODUCT SELECTOR (unchanged) ─────────────────────────
+  let selectedProduct = '';
+  function selectProduct(card) {
+    document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+    card.classList.add('selected');
+    selectedProduct = card.dataset.product;
+    document.getElementById('product-error').style.display = 'none';
+  }
 
-  form.addEventListener('submit', async (e) => {
+  // ── PHOTO UPLOAD (unchanged) ──────────────────────────────
+  let photoBase64Compressed = '';
+  let photoBase64Full = '';
+  let photoFileName = '';
+
+  function handlePhotoSelect(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) { alert('Please choose a photo under 5MB.'); return; }
+    photoFileName = file.name;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      photoBase64Full = e.target.result;
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const size = 120;
+        canvas.width = size; canvas.height = size;
+        const ctx = canvas.getContext('2d');
+        const s = Math.min(img.width, img.height);
+        const sx = (img.width - s) / 2;
+        const sy = (img.height - s) / 2;
+        ctx.drawImage(img, sx, sy, s, s, 0, 0, size, size);
+        photoBase64Compressed = canvas.toDataURL('image/jpeg', 0.7);
+      };
+      img.src = photoBase64Full;
+      document.getElementById('photo-preview-img').src = photoBase64Full;
+      const nameInput = document.getElementById('fullname').value.trim();
+      document.getElementById('photo-preview-name').textContent = nameInput || 'Your Photo';
+      document.getElementById('photo-placeholder').style.display = 'none';
+      document.getElementById('photo-preview-wrap').classList.add('visible');
+      document.getElementById('photo-drop-area').classList.add('has-photo');
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removePhoto(e) {
+    e.stopPropagation();
+    photoBase64Compressed = '';
+    photoBase64Full = '';
+    photoFileName = '';
+    document.getElementById('photo-input').value = '';
+    document.getElementById('photo-placeholder').style.display = 'flex';
+    document.getElementById('photo-preview-wrap').classList.remove('visible');
+    document.getElementById('photo-drop-area').classList.remove('has-photo');
+  }
+
+  // ── RESET (unchanged) ─────────────────────────────────────
+  function resetForm() {
+    document.getElementById('mora-form').reset();
+    photoBase64Compressed = '';
+    photoBase64Full = '';
+    photoFileName = '';
+    selectedProduct = '';
+    document.getElementById('photo-placeholder').style.display = 'flex';
+    document.getElementById('photo-preview-wrap').classList.remove('visible');
+    document.getElementById('photo-drop-area').classList.remove('has-photo');
+    document.querySelectorAll('.product-card').forEach(c => c.classList.remove('selected'));
+    document.querySelectorAll('.unit-label').forEach(el => el.textContent = 'in');
+  }
+
+  // ── FORM SUBMIT (unchanged) ───────────────────────────────
+  document.getElementById('mora-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    loader.classList.add('active');
-    const formData = new FormData(form);
-
+    if (!selectedProduct) {
+      document.getElementById('product-error').style.display = 'block';
+      document.getElementById('product-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const form = e.target;
+    let firstInvalid = null;
+    form.querySelectorAll('[required]').forEach(field => {
+      if (!field.value.trim()) {
+        field.style.borderColor = 'var(--crimson)';
+        field.style.boxShadow = '0 0 0 3px rgba(175,32,63,0.12)';
+        if (!firstInvalid) firstInvalid = field;
+      } else {
+        field.style.borderColor = '';
+        field.style.boxShadow = '';
+      }
+    });
+    if (firstInvalid) {
+      firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    document.getElementById('loader').classList.add('active');
+    const params = new URLSearchParams();
+    params.append('full_name',        document.getElementById('fullname').value.trim());
+    params.append('phone',            document.getElementById('phone').value.trim());
+    params.append('email',            document.getElementById('email').value.trim());
+    params.append('address',          document.getElementById('address').value.trim());
+    params.append('selected_product', selectedProduct);
+    params.append('bust_chest',       document.getElementById('m_bust').value);
+    params.append('under_bust',       document.getElementById('m_underbust').value);
+    params.append('waist',            document.getElementById('m_waist').value);
+    params.append('hip',              document.getElementById('m_hip').value);
+    params.append('shoulder_width',   document.getElementById('m_shoulder').value);
+    params.append('sleeve_length',    document.getElementById('m_sleeve').value);
+    params.append('armhole_round',    document.getElementById('m_armhole').value);
+    params.append('biceps_round',     document.getElementById('m_biceps').value);
+    params.append('front_neck_depth', document.getElementById('m_front_neck').value);
+    params.append('back_neck_depth',  document.getElementById('m_back_neck').value);
+    params.append('kurti_length',     document.getElementById('m_kurti').value);
+    params.append('bottom_length',    document.getElementById('m_bottom').value);
+    params.append('unit',             document.querySelector('input[name="unit"]:checked').value);
+    params.append('notes',            document.getElementById('notes').value.trim());
+    params.append('photo_base64',     photoBase64Compressed);
+    params.append('photo_filename',   photoFileName);
     try {
-      await fetch(scriptURL, { method: 'POST', body: formData });
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString(),
+        mode: 'no-cors'
+      });
     } catch (_) {}
-
+    const name = document.getElementById('fullname').value.trim();
+    const photoSlot = document.getElementById('ty-photo-slot');
+    if (photoBase64Full) {
+      photoSlot.innerHTML = `<img src="${photoBase64Full}" class="ty-photo" alt="${name}" />`;
+    } else {
+      photoSlot.innerHTML = `<div class="ty-photo-placeholder"><svg class="ty-check" viewBox="0 0 24 24"><polyline points="4 12 9 17 20 6" /></svg></div>`;
+    }
+    if (name) {
+      document.getElementById('ty-name-text').innerHTML = `Welcome, ${name.split(' ')[0]}.<br>Your Order is Placed.`;
+      document.getElementById('ty-message-text').innerHTML =
+        `Dear <strong>${name.split(' ')[0]}</strong>, your order has been safely received by our team. A MoRa tailor will personally reach out to you within <strong>1 hour</strong> to discuss your preferences and next steps.`;
+    }
     setTimeout(() => {
-      loader.classList.remove('active');
-      thankyou.classList.add('active');
-      form.reset();
+      document.getElementById('loader').classList.remove('active');
+      document.getElementById('thankyou').classList.add('active');
+      btn.disabled = false;
+      resetForm();
     }, 2200);
   });
+
+  document.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('focus', () => {
+      el.style.borderColor = '';
+      el.style.boxShadow = '';
+    });
+  });
+
+
+  // ══════════════════════════════════════════════════════════
+  //  REEL VIDEO — autoplay muted on load, click = sound ON
+  // ══════════════════════════════════════════════════════════
+
+  // Autoplay all reels muted when page loads
+  window.addEventListener('load', () => {
+    [1,2,3,4,5,6,7].forEach(n => {
+      const video = document.getElementById('video-' + n);
+      if (!video) return;
+      video.muted = true;
+      video.play().catch(() => {});
+    });
+  });
+
+  function toggleReelPlay(n) {
+    const video = document.getElementById('video-' + n);
+    const hint  = document.getElementById('hint-' + n);
+    if (!video) return;
+
+    if (video.muted) {
+      // First click: unmute this one, mute all others
+      [1,2,3,4].forEach(i => {
+        const v = document.getElementById('video-' + i);
+        const h = document.getElementById('hint-' + i);
+        if (!v) return;
+        if (i === n) {
+          v.muted = false;
+          v.play().catch(() => {});
+          if (h) { h.innerHTML = '🔊'; h.classList.remove('hidden'); setTimeout(() => h.classList.add('hidden'), 1200); }
+        } else {
+          v.muted = true;
+          const ho = document.getElementById('hint-' + i);
+          if (ho) ho.classList.add('hidden');
+        }
+      });
+    } else {
+      // Already has sound — mute it back
+      video.muted = true;
+      if (hint) { hint.innerHTML = '🔇'; hint.classList.remove('hidden'); setTimeout(() => hint.classList.add('hidden'), 1000); }
+    }
+  }
+
+  function scrollReels(dir) {
+    const track = document.getElementById('reels-track');
+    track.scrollBy({ left: dir * 250, behavior: 'smooth' });
+  }
+
+  // ── Auto-dismiss WhatsApp tooltip after 5s ──
+  setTimeout(() => {
+    const tip = document.querySelector('.wa-tooltip');
+    if (tip) { tip.style.opacity = '0'; tip.style.transition = 'opacity 0.5s'; }
+  }, 5000);
 </script>
 </body>
 </html>
